@@ -20,12 +20,12 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 Added : 
 - Two new animations OLED LCD Animations.
- - Monty Python's French Taunting
- - One Piece Ship
- - Nami One Piece Oled Animation
+   -  Monty Python's French Taunting
+   - One Piece Ship
+   - Nami One Piece Oled Animation
 - Hotkeys to swap between them
- - Mod + PAGE_UP => view next animation
- - Mod + PAGE_DOWN => view previous animation
+   - Mod + PAGE_UP => view next animation
+   - Mod + PAGE_DOWN => view previous animation
 
 LCK75R2 Fixed : 
  - Rotary Encoder Volume won't stop going up on mac / linux
