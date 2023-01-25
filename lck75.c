@@ -13,9 +13,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "lck75.h"
-#include "bongo.c"
-#include "taunt.c"
-#include "nami.c"
+#include "./animations/bongo.c"
+#include "./animations/taunt.c"
+#include "./animations/nami.c"
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) {
