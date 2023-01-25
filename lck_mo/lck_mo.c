@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "lck75.h"
+#include "lck_mo.h"
 #include "./animations/bongo.c"
 #include "./animations/taunt.c"
 #include "./animations/nami.c"
