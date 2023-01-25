@@ -13,8 +13,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "lck_mo.h"
-#include "./animations/bongo.c"
 #include "./animations/taunt.c"
+#include "./animations/killua.c"
 #include "./animations/nami.c"
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
@@ -43,12 +43,12 @@ bool oled_task_kb(void) {
         return false;
     }
     if (animation_select == 0){
-        return bongo();
-    } else if (animation_select == 1){
         return taunt();
+    } else if (animation_select == 1){
+        return nami();
     }
      else if (animation_select == 2){
-        return nami();
+        return killua();
     }
     return false;
 }

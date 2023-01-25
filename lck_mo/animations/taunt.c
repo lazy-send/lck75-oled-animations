@@ -262,10 +262,10 @@ static const char monty_idle [] PROGMEM = {
     const char* PROGMEM  tap[TAP_FRAMES_TAUNT] = {
 	montymonty__1__0,
 	montymonty__1__3,
-  montymonty__1__9,
+  	montymonty__1__9,
 	montymonty__1__12,
 	montymonty__1__18,
-  montymonty__1__48
+  	montymonty__1__48
     };
 
     // Array of all bitmaps for convenience. (Total bytes used to store images in PROGMEM = 5280)
