@@ -13,9 +13,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "lck75.h"
-#include "./animations/bongo.c"
-#include "./animations/taunt.c"
-#include "./animations/nami.c"
+#include "./animations/killua.c"
+#include "./animations/onepunch.c"
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) {
@@ -30,7 +29,7 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
 }
 
 int animation_select = 0;
-#define MAX_ANIMATIONS 3
+#define MAX_ANIMATIONS 2
 
 
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
@@ -43,12 +42,9 @@ bool oled_task_kb(void) {
         return false;
     }
     if (animation_select == 0){
-        return bongo();
+        return killua();
     } else if (animation_select == 1){
-        return taunt();
-    }
-     else if (animation_select == 2){
-        return nami();
+        return onepunch();
     }
     return false;
 }
