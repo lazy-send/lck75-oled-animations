@@ -14,7 +14,7 @@
  */
 #include "lck_mo.h"
 #include "./animations/taunt.c"
-#include "./animations/killua.c"
+#include "./animations/ship.c"
 #include "./animations/nami.c"
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
@@ -48,7 +48,7 @@ bool oled_task_kb(void) {
         return nami();
     }
      else if (animation_select == 2){
-        return killua();
+        return ship();
     }
     return false;
 }

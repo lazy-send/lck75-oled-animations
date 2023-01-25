@@ -13,7 +13,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "lck75.h"
-#include "./animations/killua.c"
+#include "./animations/ship.c"
 #include "./animations/onepunch.c"
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
@@ -42,7 +42,7 @@ bool oled_task_kb(void) {
         return false;
     }
     if (animation_select == 0){
-        return killua();
+        return ship();
     } else if (animation_select == 1){
         return onepunch();
     }
