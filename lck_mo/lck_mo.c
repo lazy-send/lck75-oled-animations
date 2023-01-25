@@ -13,7 +13,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "lck_mo.h"
-#include "./animations/taunt.c"
+#include "./animations/killua.c"
 #include "./animations/ship.c"
 #include "./animations/nami.c"
 
@@ -43,7 +43,7 @@ bool oled_task_kb(void) {
         return false;
     }
     if (animation_select == 0){
-        return taunt();
+        return killua();
     } else if (animation_select == 1){
         return nami();
     }
