@@ -15,7 +15,7 @@
 #include "lck75.h"
 #include "bongo.c"
 #include "taunt.c"
-#include "op.c"
+#include "nami.c"
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) {
@@ -48,7 +48,7 @@ bool oled_task_kb(void) {
         return taunt();
     }
      else if (animation_select == 2){
-        return onepiece();
+        return nami();
     }
     return false;
 }
