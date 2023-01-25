@@ -22,6 +22,7 @@ Added :
 - Two new animations OLED LCD Animations.
  - Monty Python's French Taunting
  - One Piece Ship
+ - Nami One Piece Oled Animation
 - Hotkeys to swap between them
  - Mod + PAGE_UP => view next animation
  - Mod + PAGE_DOWN => view previous animation
