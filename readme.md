@@ -1,5 +1,41 @@
 # Lck75 firmware with several new features
 
+```
+lck75-oled-animations
+│   README.md
+|
+└───animations [gif demos of OLED animations]
+│   │   onepiece_ship.gif
+│   │   ...
+|
+└───lck75 [LCK75 with different OLED animations]
+│   │   lck75.c
+│   │   lck75.h
+|   |   ...
+│   │
+│   └───animations [Installed animations]
+│   │   │   nami.c
+│   │   │   ship.c
+│   │   │   animations-utils.c
+│   │
+│   └───animations_bin [Functional but not installed]
+│       |   killua.c
+│       |   onepunch.c
+│       |   taunt.c
+│       |   bongo.c
+│   
+└───lck_mo [LCK75 with nami, ship, killua animations]
+    |   lck_mo.c
+    |   lck_mo.h
+    |   ...
+    |
+    └───animations
+        │   nami.c
+        │   ship.c
+        │   killua.c
+        │   animations-utils.c
+```
+
 ## Animations: <br/>
 #### Check the [Animations](https://github.com/lazy-send/lck75-oled-animations/tree/main/animations) folder for the gifs that will play on the OLED 
 - LCK75's bongo
