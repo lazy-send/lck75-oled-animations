@@ -4,7 +4,7 @@
 
 
 #define IDLE_FRAMES_KILLUA 1
-#define TAP_FRAMES_KILLUA 8
+#define TAP_FRAMES_KILLUA 9
 
 #ifdef OLED_ENABLE
 bool killua(void) {
