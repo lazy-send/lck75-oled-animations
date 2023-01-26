@@ -8,7 +8,6 @@
 - One Piece Nami
 - HXH Killua
 - One Punch Man Saitama
-<br/>
 #### To add an animation to the OLED
  1. Drag it from the [animations_bin](https://github.com/lazy-send/lck75-oled-animations/tree/main/lck75/animations_bin) folder into the [animations](https://github.com/lazy-send/lck75-oled-animations/tree/main//lck75/animations) folder.
  2. Import the animation file into  [lck75.c](https://github.com/lazy-send/lck75-oled-animations/blob/db70a9d407e65d285fe090b0d688fa8e2fac45d4/lck75/lck75.c#L16.) by adding a line or replacing a previous animation
