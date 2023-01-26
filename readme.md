@@ -2,6 +2,7 @@
 
 ```
 lck75-oled-animations
+│   lck75_mo_OLED.gif [demo of lck_mo OLED]
 │   README.md
 |
 └───animations [gif demos of OLED animations]
