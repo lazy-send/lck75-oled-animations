@@ -1,33 +1,25 @@
 # lck75
 
-A 75% keyboard that can be assembled with only through hole components, including usb type-c
+lck75 firmware with several new features
 
-* Keyboard Maintainer: [Lyso1](https://github.com/lyso1)
-* Hardware Supported: LCK75, atmega32
-* Hardware Availability: [GitHub](https://github.com/lyso1)
-
-Make example for this keyboard (after setting up your build environment):
-
-    make lyso1/lck75:default
-
-Flashing example for this keyboard:
-
-    make lyso1/lck75:default:flash
-
-See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
-
-
+Animations: 
+    Check the [Animations](https://github.com/lazy-send/lck75-oled-animations/tree/main/animations) folder for the gifs that will play on the OLED
+        - LCK75's bongo
+        - Monty Python's French Taunting
+        - One Piece Ship
+        - One Piece Nami
+        - HXH Killua
+        - One Punch Man Saitama
+    To add an animation to the OLED, drag it from the [animations_bin](https://github.com/lazy-send/lck75-oled-animations/tree/main/lck75/animations_bin) folder into the [animations](https://github.com/lazy-send/lck75-oled-animations/tree/main//lck75/animations) folder.
+    Then, import it in [lck75.c](https://github.com/lazy-send/lck75-oled-animations/blob/db70a9d407e65d285fe090b0d688fa8e2fac45d4/lck75/lck75.c#L16.)
+    Finally, call the animation function in the [animation_select](https://github.com/lazy-send/lck75-oled-animations/blob/db70a9d407e65d285fe090b0d688fa8e2fac45d4/lck75/lck75.c#L45).
+    Re-flash and test it out!
 
 Added : 
-- Two new animations OLED LCD Animations.
-   -  Monty Python's French Taunting
-   - One Piece Ship
-   - Nami One Piece Oled Animation
 - Hotkeys to swap between them
    - Mod + PAGE_UP => view next animation
    - Mod + PAGE_DOWN => view previous animation
 
 LCK75R2 Fixed : 
  - Rotary Encoder Volume won't stop going up on mac / linux
- - Rotary Encoder won't control volume
  - Caps Lock doesn't work without modifier key
