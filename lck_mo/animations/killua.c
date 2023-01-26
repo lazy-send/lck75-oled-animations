@@ -294,6 +294,7 @@ static const char killua_frame_12 [] PROGMEM = {
 
 // Array of all bitmaps for convenience. (Total bytes used to store images in PROGMEM = 8976)
 static const char* tap[TAP_FRAMES_KILLUA] = {
+	killua_frame_0,
 	killua_frame_2,
 	killua_frame_4,
 	killua_frame_1,
