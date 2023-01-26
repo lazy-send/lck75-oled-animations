@@ -14,7 +14,7 @@
  */
 #include "lck75.h"
 #include "./animations/nami.c"
-#include "./animations/onepunch.c"
+#include "./animations/ship.c"
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) {
@@ -29,7 +29,7 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
 }
 
 int animation_select = 0;
-#define MAX_ANIMATIONS 2
+#define NUM_ANIMATIONS 2
 
 
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
@@ -44,7 +44,7 @@ bool oled_task_kb(void) {
     if (animation_select == 0){
         return nami();
     } else if (animation_select == 1){
-        return onepunch();
+        return ship();
     }
     return false;
 }
@@ -53,14 +53,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case KC_MAIL:
       if (record->event.pressed) {
-        animation_select = (animation_select + 1) % MAX_ANIMATIONS;
+        animation_select = (animation_select + 1) % NUM_ANIMATIONS;
       }
       return false; // Skip all further processing of this key
     case KC_CALCULATOR:
       if (record->event.pressed) {
         animation_select = animation_select - 1;
         if (animation_select < 0){
-            animation_select = MAX_ANIMATIONS - 1;
+            animation_select = NUM_ANIMATIONS - 1;
         }
       }
       return false; // Skip all further processing of this key
