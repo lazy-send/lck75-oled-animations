@@ -1,5 +1,5 @@
 #include "satisfaction75.h"
-#include "./animations/nami.c"
+#include "./animations/ship.c"
 
 void draw_default(void);
 void draw_clock(void);
@@ -171,17 +171,19 @@ static char* get_date(void) {
 
 static void draw_info(void) {
     oled_set_cursor(0, 0);
-    oled_write_raw(get_time(), false);
-    oled_write_raw_P(PSTR(" "), false);
-    oled_write_raw(get_enc_mode(), true);
-
+    oled_write(get_time(), false);
+    oled_write_P(PSTR(" "), false);
     led_t led_state = host_keyboard_led_state();
+    if (led_state.caps_lock){
+        oled_write_P(PSTR("CAP"), led_state.caps_lock);
+    }
+
     oled_set_cursor(18, 0);
-    oled_write_raw_P(PSTR("CAP"), led_state.caps_lock);
+    oled_write(get_enc_mode(), true);
 }
 
 void draw_default() {
-    nami();
+    ship();
     draw_info();
 }
 
