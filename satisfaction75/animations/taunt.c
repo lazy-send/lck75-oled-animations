@@ -4,7 +4,6 @@
 #include "animation-utils.c"
 
 
-#define IDLE_FRAMES_TAUNT 1
 #define TAP_FRAMES_TAUNT 9
 
 #ifdef OLED_ENABLE
@@ -376,12 +375,7 @@ static const char monty_idle [] PROGMEM = {
   montymonty__1__48
     };
 
-    // Array of all bitmaps for convenience. (Total bytes used to store images in PROGMEM = 5280)
-    const char* PROGMEM  idle[IDLE_FRAMES_TAUNT] = {
-        monty_idle
-    };
-
-    render_animation(tap, idle, TAP_FRAMES_TAUNT, IDLE_FRAMES_TAUNT);
+    render_animation(tap, TAP_FRAMES_TAUNT);
     return false;
 }
 #endif

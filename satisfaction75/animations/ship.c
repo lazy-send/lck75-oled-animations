@@ -3,7 +3,6 @@
 #include "animation-utils.c"
 
 
-#define IDLE_FRAMES_SHIP 1
 #define TAP_FRAMES_SHIP 9
 
 #ifdef OLED_ENABLE
@@ -340,12 +339,7 @@ static char* tap[TAP_FRAMES_SHIP] = {
 	epd_bitmap_be351c1c19624aa6f8f891db094c53d2Yr9ezFN5tY8ui7AX_0
 };
 
-    // Array of all bitmaps for convenience. (Total bytes used to store images in PROGMEM = 5280)
-    static char* PROGMEM  idle[IDLE_FRAMES_SHIP] = {
-        epd_bitmap_be351c1c19624aa6f8f891db094c53d2Yr9ezFN5tY8ui7AX_0
-    };
-
-    render_animation(tap, idle, TAP_FRAMES_SHIP, IDLE_FRAMES_SHIP);
+    render_animation(tap, TAP_FRAMES_SHIP);
     return false;
 }
 #endif

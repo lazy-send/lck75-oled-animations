@@ -3,7 +3,6 @@
 #include "animation-utils.c"
 
 
-#define IDLE_FRAMES_NAMI 1
 #define TAP_FRAMES_NAMI 10
 
 #ifdef OLED_ENABLE
@@ -376,12 +375,7 @@ static char* tap[TAP_FRAMES_NAMI] = {
 	nami_frame_22
 };
 
-    // Array of all bitmaps for convenience. (Total bytes used to store images in PROGMEM = 5280)
-    static char* PROGMEM  idle[IDLE_FRAMES_NAMI] = {
-        nami_frame_0
-    };
-
-    render_animation(tap, idle, TAP_FRAMES_NAMI, IDLE_FRAMES_NAMI);
+    render_animation(tap, TAP_FRAMES_NAMI);
     return false;
 }
 #endif
