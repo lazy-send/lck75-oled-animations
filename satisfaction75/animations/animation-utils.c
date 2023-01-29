@@ -16,7 +16,9 @@ static void render_animation(char **tap_frames, uint8_t tap_frames_len, bool rew
     uint anim_speed = ANIM_FRAME_DURATION;
 
     void animation_phase(void) {
+      if (!rewrite){
         current_tap_frame = (current_tap_frame + 1) % tap_frames_len;
+      }
         oled_write_raw_P(tap_frames[abs((tap_frames_len-1)-current_tap_frame)], ANIM_SIZE);
     }
 
