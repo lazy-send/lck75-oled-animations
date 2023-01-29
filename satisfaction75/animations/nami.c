@@ -6,7 +6,7 @@
 #define TAP_FRAMES_NAMI 10
 
 #ifdef OLED_ENABLE
-bool nami(void) {
+bool nami(static bool rewrite) {
     if (!oled_task_user()) {
         return false;
     }
@@ -375,7 +375,7 @@ static char* tap[TAP_FRAMES_NAMI] = {
 	nami_frame_22
 };
 
-    render_animation(tap, TAP_FRAMES_NAMI);
+    render_animation(tap, TAP_FRAMES_NAMI, rewrite);
     return false;
 }
 #endif

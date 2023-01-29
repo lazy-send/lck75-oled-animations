@@ -8,13 +8,16 @@ void draw_clock(void);
 
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) { return OLED_ROTATION_0; }
 
+bool caps_state = false; //Manages One-time overwrite of caps symbol when turning it off
+bool force_rewrite = false; 
+
 bool oled_task_kb(void) {
     if (!oled_task_user()) { return false; }
     if (!oled_task_needs_to_repaint()) {
         return false;
     }
-    // oled_clear();
     if (clock_set_mode) {
+        oled_clear();
         draw_clock();
         return false;;
     }
@@ -24,6 +27,7 @@ bool oled_task_kb(void) {
             draw_default();
             break;
         case OLED_TIME:
+            oled_clear();
             draw_clock();
             break;
     }
@@ -175,7 +179,11 @@ static void draw_info(void) {
     oled_write_P(PSTR(" "), false);
     led_t led_state = host_keyboard_led_state();
     if (led_state.caps_lock){
-        oled_write_P(PSTR("CAP"), led_state.caps_lock);
+        oled_write_P(PSTR("CAPS"), led_state.caps_lock);
+        caps_state = true;
+    } else if (caps_state){
+        caps_state = false;
+        force_rewrite = true;
     }
 
     oled_set_cursor(18, 0);
@@ -183,7 +191,10 @@ static void draw_info(void) {
 }
 
 void draw_default() {
-    ship();
+    ship(force_rewrite);
+    if (force_rewrite){
+        force_rewrite = false;
+    }
     draw_info();
 }
 
