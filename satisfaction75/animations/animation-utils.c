@@ -1,3 +1,5 @@
+#include "../satisfaction75.h"
+
 #pragma once
 
 #ifndef MAX_ANIMATION_SPEED
@@ -10,7 +12,7 @@
   #define ANIM_SIZE 512
 #endif
 
-static void render_animation(char **tap_frames, uint8_t tap_frames_len, bool rewrite) {
+static void render_animation(const char **tap_frames, uint8_t tap_frames_len, bool rewrite) {
     static uint32_t anim_timer = 0;
     static uint8_t current_tap_frame = 0;
     uint anim_speed = ANIM_FRAME_DURATION;
@@ -19,7 +21,7 @@ static void render_animation(char **tap_frames, uint8_t tap_frames_len, bool rew
       if (!rewrite){
         current_tap_frame = (current_tap_frame + 1) % tap_frames_len;
       }
-        oled_write_raw_P(tap_frames[abs((tap_frames_len-1)-current_tap_frame)], ANIM_SIZE);
+      oled_write_raw_P(tap_frames[abs((tap_frames_len-1)-current_tap_frame)], ANIM_SIZE);
     }
 
     if (get_current_wpm() * 5 > ANIM_FRAME_DURATION){

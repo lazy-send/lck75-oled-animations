@@ -42,6 +42,9 @@ int8_t month_config = 0;
 int8_t day_config = 0;
 uint8_t previous_encoder_mode = 0;
 
+uint8_t animation_select = 0;
+bool animation_invert = false;
+
 backlight_config_t kb_backlight_config = {
   .enable = true,
   .breathing = true,

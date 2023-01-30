@@ -1,5 +1,7 @@
 #include "satisfaction75.h"
 #include "./animations/ship.c"
+#include "./animations/nami.c"
+#include "./animations/taunt.c"
 
 void draw_default(void);
 void draw_clock(void);
@@ -118,8 +120,8 @@ static char* get_enc_mode(void) {
             return "VOL";
         case ENC_MODE_MEDIA:
             return "MED";
-        case ENC_MODE_SCROLL:
-            return "SCR";
+        case ENC_MODE_ANIMATION:
+            return "ANM";
         case ENC_MODE_BRIGHTNESS:
             return "BRT";
         case ENC_MODE_BACKLIGHT:
@@ -191,7 +193,18 @@ static void draw_info(void) {
 }
 
 void draw_default() {
-    ship(force_rewrite);
+    switch (animation_select) {
+        default:
+        case 0:
+            ship(force_rewrite);
+            break;
+        case 1:
+            nami(force_rewrite);
+            break;
+        case 2:
+            taunt(force_rewrite);
+            break;
+    }
     if (force_rewrite){
         force_rewrite = false;
     }

@@ -4,10 +4,10 @@
 #include "animation-utils.c"
 
 
-#define TAP_FRAMES_TAUNT 9
+#define TAP_FRAMES_TAUNT 13
 
 #ifdef OLED_ENABLE
-bool taunt(static bool rewrite) {
+bool taunt(bool rewrite) {
     if (!oled_task_user()) {
         return false;
     }
@@ -363,16 +363,20 @@ static const char monty_idle [] PROGMEM = {
 };
 
     // Array of all bitmaps for convenience. (Total bytes used to store images in PROGMEM = 5280)
-    const char* PROGMEM  tap[TAP_FRAMES_TAUNT] = {
+    static const char* PROGMEM  tap[TAP_FRAMES_TAUNT] = {
+	monty_idle,
 	montymonty__1__0,
 	montymonty__1__3,
-  montymonty__1__9,
+  	montymonty__1__9,
 	montymonty__1__12,
 	montymonty__1__18,
 	montymonty__1__24,
 	montymonty__1__30,
 	montymonty__1__42,
-  montymonty__1__48
+  	montymonty__1__48,
+	montymonty__1__42,
+	montymonty__1__30,
+	montymonty__1__24
     };
 
     render_animation(tap, TAP_FRAMES_TAUNT, rewrite);

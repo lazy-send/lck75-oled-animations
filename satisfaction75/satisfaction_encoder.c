@@ -1,6 +1,7 @@
 #include "satisfaction75.h"
 #include "eeprom.h"
 
+
 void pre_encoder_mode_change(){
   if(encoder_mode == ENC_MODE_CLOCK_SET){
     RTCDateTime timespec;
@@ -40,7 +41,7 @@ void change_encoder_mode(bool negative){
         encoder_mode = encoder_mode - 1;
       }
     } else {
-        encoder_mode = (encoder_mode + 1) % _NUM_ENCODER_MODES;
+        encoder_mode = (encoder_mode + 1) % (_NUM_ENCODER_MODES);
     }
   } while(((1 << encoder_mode) & enabled_encoder_modes) == 0);
   post_encoder_mode_change();
@@ -96,8 +97,8 @@ uint16_t handle_encoder_clockwise(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_NEXT_TRACK;
       break;
-    case ENC_MODE_SCROLL:
-      mapped_code = KC_WH_D;
+    case ENC_MODE_ANIMATION:
+      animation_select = (animation_select + 1) % NUM_ANIMATIONS;
       break;
     case ENC_MODE_BACKLIGHT:
       kb_backlight_config.level = kb_backlight_config.level + 1;
@@ -140,9 +141,12 @@ uint16_t handle_encoder_ccw(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_PREV_TRACK;
       break;
-    case ENC_MODE_SCROLL:
-      mapped_code = KC_WH_U;
-      break;
+    case ENC_MODE_ANIMATION:
+      if (animation_select == 0){
+        animation_select = NUM_ANIMATIONS - 1;
+      } else {
+        animation_select = animation_select - 1;
+      }
     case ENC_MODE_BACKLIGHT:
       // mapped_code = BL_DOWN;
       if(kb_backlight_config.level != 0){
@@ -158,7 +162,7 @@ uint16_t handle_encoder_ccw(){
       break;
 #ifdef DYNAMIC_KEYMAP_ENABLE
     case ENC_MODE_CUSTOM0:
-      mapped_code = retrieve_custom_encoder_config(0, ENC_CUSTOM_CCW);
+      mapped_code = retrieve_custom_encoder_config(1, ENC_CUSTOM_CCW);
       break;
     case ENC_MODE_CUSTOM1:
       mapped_code = retrieve_custom_encoder_config(1, ENC_CUSTOM_CCW);
@@ -167,7 +171,6 @@ uint16_t handle_encoder_ccw(){
       mapped_code = retrieve_custom_encoder_config(2, ENC_CUSTOM_CCW);
       break;
 #endif
-
     case ENC_MODE_CLOCK_SET:
       update_time_config(-1);
       break;
@@ -185,8 +188,8 @@ uint16_t handle_encoder_press(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_PLAY_PAUSE;
       break;
-    case ENC_MODE_SCROLL:
-      mapped_code = KC_BTN3;
+    case ENC_MODE_ANIMATION:
+      animation_invert = !animation_invert;
       break;
     case ENC_MODE_BACKLIGHT:
       // mapped_code = BL_TOGG;

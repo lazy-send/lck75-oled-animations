@@ -40,7 +40,7 @@ enum s75_custom_value_id {
 enum encoder_modes {
   ENC_MODE_VOLUME,
   ENC_MODE_MEDIA,
-  ENC_MODE_SCROLL,
+  ENC_MODE_ANIMATION,
   ENC_MODE_BRIGHTNESS,
   ENC_MODE_BACKLIGHT,
   ENC_MODE_CUSTOM0,
@@ -63,6 +63,10 @@ enum oled_modes {
   _NUM_OLED_MODES
 };
 
+// Encoder Animation
+#define NUM_ANIMATIONS 3
+extern uint8_t animation_select;
+extern bool animation_invert;
 
 // Keyboard Information
 extern volatile uint8_t led_numlock;
