@@ -31,7 +31,7 @@ void post_encoder_mode_change(){
 void change_encoder_mode(bool negative){
   pre_encoder_mode_change();
   if(enabled_encoder_modes == 0){
-    enabled_encoder_modes = 0x1F;
+    enabled_encoder_modes = 0x3F;
   }
   do {
     if(negative){
@@ -97,11 +97,12 @@ uint16_t handle_encoder_clockwise(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_NEXT_TRACK;
       break;
-    // case ENC_MODE_SCROLL:
-    //   mapped_code = KC_WH_D;
-    //   break;
+    case ENC_MODE_SCROLL:
+      mapped_code = KC_WH_D;
+      break;
     case ENC_MODE_ANIMATION:
       animation_select = (animation_select + 1) % NUM_ANIMATIONS;
+      force_rewrite = true;
       break;
     case ENC_MODE_BACKLIGHT:
       kb_backlight_config.level = kb_backlight_config.level + 1;
@@ -123,9 +124,9 @@ uint16_t handle_encoder_clockwise(){
     case ENC_MODE_CUSTOM1:
       mapped_code = retrieve_custom_encoder_config(1, ENC_CUSTOM_CW);
       break;
-    case ENC_MODE_CUSTOM2:
-      mapped_code = retrieve_custom_encoder_config(2, ENC_CUSTOM_CW);
-      break;
+    // case ENC_MODE_CUSTOM2:
+    //   mapped_code = retrieve_custom_encoder_config(2, ENC_CUSTOM_CW);
+    //   break;
 #endif
     case ENC_MODE_CLOCK_SET:
       update_time_config(1);
@@ -144,15 +145,17 @@ uint16_t handle_encoder_ccw(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_PREV_TRACK;
       break;
-    // case ENC_MODE_SCROLL:
-    //   mapped_code = KC_WH_U;
-    //   break;
+    case ENC_MODE_SCROLL:
+      mapped_code = KC_WH_U;
+      break;
     case ENC_MODE_ANIMATION:
       if (animation_select == 0){
         animation_select = NUM_ANIMATIONS - 1;
       } else {
         animation_select = animation_select - 1;
       }
+      force_rewrite = true;
+      break;
     case ENC_MODE_BACKLIGHT:
       // mapped_code = BL_DOWN;
       if(kb_backlight_config.level != 0){
@@ -173,9 +176,9 @@ uint16_t handle_encoder_ccw(){
     case ENC_MODE_CUSTOM1:
       mapped_code = retrieve_custom_encoder_config(1, ENC_CUSTOM_CCW);
       break;
-    case ENC_MODE_CUSTOM2:
-      mapped_code = retrieve_custom_encoder_config(2, ENC_CUSTOM_CCW);
-      break;
+    // case ENC_MODE_CUSTOM2:
+    //   mapped_code = retrieve_custom_encoder_config(2, ENC_CUSTOM_CCW);
+    //   break;
 #endif
     case ENC_MODE_CLOCK_SET:
       update_time_config(-1);
@@ -194,11 +197,12 @@ uint16_t handle_encoder_press(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_PLAY_PAUSE;
       break;
-    // case ENC_MODE_SCROLL:
-    //   mapped_code = KC_BTN3;
-    //   break;
+    case ENC_MODE_SCROLL:
+      mapped_code = KC_BTN3;
+      break;
     case ENC_MODE_ANIMATION:
       animation_invert = !animation_invert;
+      force_rewrite = true;
       break;
     case ENC_MODE_BACKLIGHT:
       // mapped_code = BL_TOGG;
@@ -216,9 +220,9 @@ uint16_t handle_encoder_press(){
     case ENC_MODE_CUSTOM1:
       mapped_code = retrieve_custom_encoder_config(1, ENC_CUSTOM_PRESS);
       break;
-    case ENC_MODE_CUSTOM2:
-      mapped_code = retrieve_custom_encoder_config(2, ENC_CUSTOM_PRESS);
-      break;
+    // case ENC_MODE_CUSTOM2:
+    //   mapped_code = retrieve_custom_encoder_config(2, ENC_CUSTOM_PRESS);
+    //   break;
 #endif
     case ENC_MODE_CLOCK_SET:
       time_config_idx = (time_config_idx + 1) % 5;

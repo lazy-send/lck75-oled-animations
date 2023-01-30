@@ -1,7 +1,7 @@
 #include "satisfaction75.h"
 #include "./animations/ship.c"
 #include "./animations/nami.c"
-#include "./animations/taunt.c"
+// #include "./animations/taunt.c"
 
 void draw_default(void);
 void draw_clock(void);
@@ -11,7 +11,6 @@ void draw_clock(void);
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) { return OLED_ROTATION_0; }
 
 bool caps_state = false; //Manages One-time overwrite of caps symbol when turning it off
-bool force_rewrite = false; 
 
 bool oled_task_kb(void) {
     if (!oled_task_user()) { return false; }
@@ -120,8 +119,8 @@ static char* get_enc_mode(void) {
             return "VOL";
         case ENC_MODE_MEDIA:
             return "MED";
-        // case ENC_MODE_SCROLL:
-        //     return "SCR";
+        case ENC_MODE_SCROLL:
+            return "SCR";
         case ENC_MODE_ANIMATION:
             return "ANM";
         case ENC_MODE_BRIGHTNESS:
@@ -134,8 +133,8 @@ static char* get_enc_mode(void) {
             return "CS0";
         case ENC_MODE_CUSTOM1:
             return "CS1";
-        case ENC_MODE_CUSTOM2:
-            return "CS2";
+        // case ENC_MODE_CUSTOM2:
+        //     return "CS2";
     }
 }
 
@@ -198,17 +197,14 @@ void draw_default() {
     switch (animation_select) {
         default:
         case 0:
-            ship(force_rewrite);
+            ship();
             break;
         case 1:
-            nami(force_rewrite);
+            nami();
             break;
-        case 2:
-            taunt(force_rewrite);
-            break;
-    }
-    if (force_rewrite){
-        force_rewrite = false;
+        // case 2:
+        //     taunt();
+        //     break;
     }
     draw_info();
 }

@@ -41,12 +41,12 @@ enum encoder_modes {
   ENC_MODE_VOLUME,
   ENC_MODE_MEDIA,
   ENC_MODE_ANIMATION,
-  // ENC_MODE_SCROLL,
+  ENC_MODE_SCROLL,
   ENC_MODE_BRIGHTNESS,
   ENC_MODE_BACKLIGHT,
   ENC_MODE_CUSTOM0,
   ENC_MODE_CUSTOM1,
-  ENC_MODE_CUSTOM2,
+  // ENC_MODE_CUSTOM2,
   _NUM_ENCODER_MODES,
   ENC_MODE_CLOCK_SET // This shouldn't be included in the default modes, so we put it after NUM_ENCODER_MODES
 };
@@ -65,9 +65,10 @@ enum oled_modes {
 };
 
 // Encoder Animation
-#define NUM_ANIMATIONS 3
+#define NUM_ANIMATIONS 2
 extern uint8_t animation_select;
 extern bool animation_invert;
+extern bool force_rewrite;
 
 // Keyboard Information
 extern volatile uint8_t led_numlock;

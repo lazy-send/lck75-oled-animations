@@ -29,7 +29,7 @@ uint32_t oled_sleep_timer;
 
 uint8_t encoder_value = 32;
 uint8_t encoder_mode = ENC_MODE_VOLUME;
-uint8_t enabled_encoder_modes = 0x1F;
+uint8_t enabled_encoder_modes = 0x3F;
 
 RTCDateTime last_timespec;
 uint16_t last_minute = 0;
@@ -44,6 +44,7 @@ uint8_t previous_encoder_mode = 0;
 
 uint8_t animation_select = 0;
 bool animation_invert = false;
+bool force_rewrite = false;
 
 backlight_config_t kb_backlight_config = {
   .enable = true,
@@ -326,8 +327,8 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise)) return false;
-    oled_request_wakeup();
+  if (!encoder_update_user(index, clockwise)) return false;
+  oled_request_wakeup();
   encoder_value = (encoder_value + (clockwise ? 1 : -1)) % 64;
   if (index == 0) {
     if (layer == 0){

@@ -6,7 +6,7 @@
 #define TAP_FRAMES_SHIP 9
 
 #ifdef OLED_ENABLE
-bool ship(bool rewrite) {
+bool ship(void) {
     if (!oled_task_user()) {
         return false;
     }
@@ -339,7 +339,7 @@ static const char* tap[TAP_FRAMES_SHIP] = {
 	epd_bitmap_be351c1c19624aa6f8f891db094c53d2Yr9ezFN5tY8ui7AX_0
 };
 
-    render_animation(tap, TAP_FRAMES_SHIP, rewrite);
+    render_animation(tap, TAP_FRAMES_SHIP);
     return false;
 }
 #endif

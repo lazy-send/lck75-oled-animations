@@ -7,7 +7,7 @@
 #define TAP_FRAMES_TAUNT 12
 
 #ifdef OLED_ENABLE
-bool taunt(bool rewrite) {
+bool taunt(void) {
     if (!oled_task_user()) {
         return false;
     }
@@ -379,7 +379,7 @@ static const char montymonty__1__48 [] PROGMEM = {
 	montymonty__1__24
     };
 
-    render_animation(tap, TAP_FRAMES_TAUNT, rewrite);
+    render_animation(tap, TAP_FRAMES_TAUNT);
     return false;
 }
 #endif
