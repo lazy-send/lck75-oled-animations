@@ -97,6 +97,9 @@ uint16_t handle_encoder_clockwise(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_NEXT_TRACK;
       break;
+    // case ENC_MODE_SCROLL:
+    //   mapped_code = KC_WH_D;
+    //   break;
     case ENC_MODE_ANIMATION:
       animation_select = (animation_select + 1) % NUM_ANIMATIONS;
       break;
@@ -141,6 +144,9 @@ uint16_t handle_encoder_ccw(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_PREV_TRACK;
       break;
+    // case ENC_MODE_SCROLL:
+    //   mapped_code = KC_WH_U;
+    //   break;
     case ENC_MODE_ANIMATION:
       if (animation_select == 0){
         animation_select = NUM_ANIMATIONS - 1;
@@ -188,6 +194,9 @@ uint16_t handle_encoder_press(){
     case ENC_MODE_MEDIA:
       mapped_code = KC_MEDIA_PLAY_PAUSE;
       break;
+    // case ENC_MODE_SCROLL:
+    //   mapped_code = KC_BTN3;
+    //   break;
     case ENC_MODE_ANIMATION:
       animation_invert = !animation_invert;
       break;

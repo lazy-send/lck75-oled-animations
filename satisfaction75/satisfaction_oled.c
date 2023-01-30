@@ -120,6 +120,8 @@ static char* get_enc_mode(void) {
             return "VOL";
         case ENC_MODE_MEDIA:
             return "MED";
+        // case ENC_MODE_SCROLL:
+        //     return "SCR";
         case ENC_MODE_ANIMATION:
             return "ANM";
         case ENC_MODE_BRIGHTNESS:
