@@ -7,9 +7,6 @@
 
 #ifdef OLED_ENABLE
 bool ship(void) {
-    if (!oled_task_user()) {
-        return false;
-    }
 // 'be351c1c19624aa6f8f891db094c53d2Yr9ezFN5tY8ui7AX-0', 128x32px
 static const char epd_bitmap_be351c1c19624aa6f8f891db094c53d2Yr9ezFN5tY8ui7AX_0 [] PROGMEM = {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 

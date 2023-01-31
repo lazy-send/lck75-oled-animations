@@ -106,6 +106,7 @@ uint16_t handle_encoder_clockwise(){
       }else {
         animation_select ++;
       }
+      current_idle_frame = 0;
       current_tap_frame = 0;
       force_rewrite = true;
       break;
@@ -159,6 +160,7 @@ uint16_t handle_encoder_ccw(){
       } else {
         animation_select = animation_select - 1;
       }
+      current_idle_frame = 0;
       current_tap_frame = 0;
       force_rewrite = true;
       break;
@@ -208,6 +210,7 @@ uint16_t handle_encoder_press(){
       break;
     case ENC_MODE_ANIMATION:
       animation_invert = !animation_invert;
+      current_idle_frame = 0;
       current_tap_frame = 0;
       force_rewrite = true;
       break;

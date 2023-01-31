@@ -65,11 +65,12 @@ enum oled_modes {
 };
 
 // Encoder Animation
-#define NUM_ANIMATIONS 5
+#define NUM_ANIMATIONS 8
 extern uint8_t animation_select;
 extern bool animation_invert;
 extern bool force_rewrite;
 extern uint8_t current_tap_frame;
+extern uint8_t current_idle_frame;
 
 // Keyboard Information
 extern volatile uint8_t led_numlock;
@@ -86,7 +87,7 @@ extern uint32_t oled_sleep_timer;
 // Encoder Behavior
 extern uint8_t encoder_value;
 extern uint8_t encoder_mode;
-extern uint8_t enabled_encoder_modes;
+extern uint8_t enabled_encoder_modes; // 1 bit per enabled encoder mode
 
 // RTC
 extern RTCDateTime last_timespec;

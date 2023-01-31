@@ -7,9 +7,6 @@
 
 #ifdef OLED_ENABLE
 bool brushing_teeth(void) {
-    if (!oled_task_user()) {
-        return false;
-    }
 // 'brushing teeth (1)-0', 128x32px
 static const char spike_brushing_teeth_0 [] PROGMEM = {
 	0xfd, 0x80, 0x80, 0x80, 0xc0, 0x80, 0x80, 0x90, 0x80, 0x80, 0x80, 0x80, 0x80, 0x20, 0xe0, 0xc2, 

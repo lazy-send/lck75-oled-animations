@@ -4,6 +4,10 @@
 #include "./animations/ship.c"
 #include "./animations/taunt.c"
 #include "./animations/gojo.c"
+#include "./animations/brushing_teeth.c"
+#include "./animations/nami.c"
+#include "./animations/bongo.c"
+#include "./animations/killua.c"
 
 void draw_default(void);
 void draw_clock(void);
@@ -213,6 +217,15 @@ void draw_default() {
             break;
         case 4:
             gojo();
+            break;
+        case 5: 
+            killua();
+            break;
+        case 6:
+            nami();
+            break;
+        case 7: 
+            bongo();
             break;
     }
 
