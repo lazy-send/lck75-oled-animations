@@ -5,7 +5,6 @@
 #include "./animations/ship.c"
 #include "./animations/taunt.c"
 #include "./animations/gojo.c"
-#include "./animations/brushing_teeth.c"
 #include "./animations/nami.c"
 #include "./animations/bongo.c"
 #include "./animations/killua.c"
