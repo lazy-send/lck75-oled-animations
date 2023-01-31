@@ -1,6 +1,7 @@
 #include "satisfaction75.h"
 #include "./animations/smoking.c"
-#include "./animations/sunbathe.c"
+#include "./animations/faye_drive.c"
+#include "./animations/faye_ship.c"
 #include "./animations/ship.c"
 #include "./animations/taunt.c"
 #include "./animations/gojo.c"
@@ -213,7 +214,7 @@ void draw_default() {
             taunt();
             break;
         case 3:
-            sunbathe();
+            faye_drive();
             break;
         case 4:
             gojo();
@@ -226,6 +227,9 @@ void draw_default() {
             break;
         case 7: 
             bongo();
+            break;
+        case 8: 
+            faye_ship();
             break;
     }
 

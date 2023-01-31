@@ -65,7 +65,7 @@ enum oled_modes {
 };
 
 // Encoder Animation
-#define NUM_ANIMATIONS 8
+#define NUM_ANIMATIONS 9
 extern uint8_t animation_select;
 extern bool animation_invert;
 extern bool force_rewrite;
