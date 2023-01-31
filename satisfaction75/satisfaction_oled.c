@@ -1,7 +1,9 @@
 #include "satisfaction75.h"
+#include "./animations/smoking.c"
+#include "./animations/sunbathe.c"
 #include "./animations/ship.c"
-#include "./animations/nami.c"
-// #include "./animations/taunt.c"
+#include "./animations/taunt.c"
+#include "./animations/gojo.c"
 
 void draw_default(void);
 void draw_clock(void);
@@ -10,7 +12,7 @@ void draw_clock(void);
 
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) { return OLED_ROTATION_0; }
 
-bool caps_state = false; //Manages One-time overwrite of caps symbol when turning it off
+bool previous_caps_state = false; //Manages One-time overwrite of caps symbol when turning it off
 
 bool oled_task_kb(void) {
     if (!oled_task_user()) { return false; }
@@ -176,37 +178,45 @@ static char* get_date(void) {
     return date_str;
 }
 
-static void draw_info(void) {
+static void draw_info(bool caps_on) {
     oled_set_cursor(0, 0);
     oled_write(get_time(), animation_invert);
-    led_t led_state = host_keyboard_led_state();
-    if (led_state.caps_lock){
+    if (caps_on){
         oled_set_cursor(0, 1);
         oled_write_P(PSTR("CAPS"), animation_invert);
-        caps_state = true;
-    } else if (caps_state){
-        caps_state = false;
-        force_rewrite = true;
     }
-
     oled_set_cursor(18, 0);
     oled_write(get_enc_mode(), animation_invert);
 }
 
 void draw_default() {
+    led_t led_state = host_keyboard_led_state();
+    if (led_state.caps_lock){
+        previous_caps_state = true;
+    } else if (previous_caps_state){
+        previous_caps_state = false;
+        force_rewrite = true;
+    }
     switch (animation_select) {
         default:
         case 0:
             ship();
             break;
         case 1:
-            nami();
+            smoking();
             break;
-        // case 2:
-        //     taunt();
-        //     break;
+        case 2:
+            taunt();
+            break;
+        case 3:
+            sunbathe();
+            break;
+        case 4:
+            gojo();
+            break;
     }
-    draw_info();
+
+    draw_info(led_state.caps_lock);
 }
 
 void draw_clock() {

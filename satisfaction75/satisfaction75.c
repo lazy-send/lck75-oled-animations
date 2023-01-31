@@ -45,6 +45,7 @@ uint8_t previous_encoder_mode = 0;
 uint8_t animation_select = 0;
 bool animation_invert = false;
 bool force_rewrite = false;
+uint8_t current_tap_frame = 0;
 
 backlight_config_t kb_backlight_config = {
   .enable = true,

@@ -3,7 +3,7 @@
 #pragma once
 
 #ifndef MAX_ANIMATION_SPEED
-  #define MAX_ANIMATION_SPEED 5 //Max animation speed
+  #define MAX_ANIMATION_SPEED 10 //Max animation speed
 #endif
 #ifndef ANIM_FRAME_DURATION
   #define ANIM_FRAME_DURATION 600 //Invert animation color and background
@@ -14,7 +14,6 @@
 
 static void render_animation(const char **tap_frames, uint8_t tap_frames_len) {
     static uint32_t anim_timer = 0;
-    static uint8_t current_tap_frame = 0;
     uint anim_speed = ANIM_FRAME_DURATION;
 
     void animation_phase(void) {

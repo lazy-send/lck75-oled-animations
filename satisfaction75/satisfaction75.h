@@ -65,10 +65,11 @@ enum oled_modes {
 };
 
 // Encoder Animation
-#define NUM_ANIMATIONS 2
+#define NUM_ANIMATIONS 5
 extern uint8_t animation_select;
 extern bool animation_invert;
 extern bool force_rewrite;
+extern uint8_t current_tap_frame;
 
 // Keyboard Information
 extern volatile uint8_t led_numlock;

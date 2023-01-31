@@ -101,7 +101,12 @@ uint16_t handle_encoder_clockwise(){
       mapped_code = KC_WH_D;
       break;
     case ENC_MODE_ANIMATION:
-      animation_select = (animation_select + 1) % NUM_ANIMATIONS;
+      if (animation_select == NUM_ANIMATIONS - 1){
+        animation_select = 0;
+      }else {
+        animation_select ++;
+      }
+      current_tap_frame = 0;
       force_rewrite = true;
       break;
     case ENC_MODE_BACKLIGHT:
@@ -154,6 +159,7 @@ uint16_t handle_encoder_ccw(){
       } else {
         animation_select = animation_select - 1;
       }
+      current_tap_frame = 0;
       force_rewrite = true;
       break;
     case ENC_MODE_BACKLIGHT:
@@ -202,6 +208,7 @@ uint16_t handle_encoder_press(){
       break;
     case ENC_MODE_ANIMATION:
       animation_invert = !animation_invert;
+      current_tap_frame = 0;
       force_rewrite = true;
       break;
     case ENC_MODE_BACKLIGHT:
