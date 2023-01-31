@@ -6,10 +6,10 @@
   #define ANIM_SIZE 512
 #endif
 #ifndef MAX_ANIMATION_SPEED
-  #define MAX_ANIMATION_SPEED 10
+  #define MAX_ANIMATION_SPEED 50
 #endif
 #ifndef ANIM_FRAME_DURATION
-  #define ANIM_FRAME_DURATION 600
+  #define ANIM_FRAME_DURATION 200
 #endif
 
 #ifndef TYPING_FRAME_DURATION
@@ -34,10 +34,10 @@ static void render_animation(const char **tap_frames, uint8_t _tap_frames_len) {
     }
 
     // Calculate animation_speed from wpm
-    if (get_current_wpm() * 5 > ANIM_FRAME_DURATION){
+    if (get_current_wpm() > ANIM_FRAME_DURATION){
         anim_speed = MAX_ANIMATION_SPEED;
     } else {
-        anim_speed = ANIM_FRAME_DURATION - get_current_wpm() * 5;
+        anim_speed = ANIM_FRAME_DURATION - get_current_wpm();
     }
     // Cycle animation
     if (force_rewrite){
