@@ -6,7 +6,7 @@
  - Setup [Qmk Flash](https://qmk.github.io/qmk_mkdocs/master/en/tutorial_flashing/) on your machine
  - Flash the lck_mo firmware
    - Linux: `qmk flash -kb lazy_send/satisfaction75/rev1 -km default`
-   - Max/Windows: flash the firmware `lazy_send/lck_mo` with QMK Toolbox using the [default keymap hexfile](https://github.com/lazy-send/lck75-oled-animations/tree/main/lazy_send_lck_mo_default.hex)  
+   - Max/Windows: flash the firmware `lazy_send/lck_mo` with QMK Toolbox using the [default keymap hexfile](https://github.com/lazy-send/lck75-oled-animations/tree/main/lck_mo/lazy_send_lck_mo_default.hex)  
 
 ## Animations: <br/>
 #### Check the [Animations](https://github.com/lazy-send/lck75-oled-animations/tree/main/animations) folder for the gifs that will play on the OLED 
