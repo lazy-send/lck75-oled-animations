@@ -2,10 +2,13 @@
 
 ## Quick Install: <br/>
 
-#### Flash the lck_mo keyboard firmware
+#### Flash the lck_mo keyboard firmware for lck75
  - Setup [Qmk Flash](https://qmk.github.io/qmk_mkdocs/master/en/tutorial_flashing/) on your machine
  - Flash the lck_mo firmware
-   - Linux: `qmk flash -kb lazy_send/satisfaction75/rev1 -km default`
+   - Linux: 
+      - Download repo and move into your `qmk_firmware/keyboards` directory 
+        - lck_mo directory should be at `qmk_firmware/keyboards/lazy_send/lck_mo`     
+        - Flash keyboard using command line: `qmk flash -kb lazy_send/lck_mo -km default`
    - Max/Windows: flash the firmware `lazy_send/lck_mo` with QMK Toolbox using the [default keymap hexfile](https://github.com/lazy-send/lck75-oled-animations/tree/main/lck_mo/lazy_send_lck_mo_default.hex)  
 
 ## Animations: <br/>
